@@ -14,7 +14,11 @@ builder.Services.AddSingleton<IMongoDbSetting>(serviceProvider =>
     serviceProvider.GetRequiredService<IOptions<DictionaryDbSetting>>().Value);
 
 builder.Services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
-builder.Services.AddScoped<IVocabularyService, VocabularyService>();   
+builder.Services.AddScoped<IVocabularyService, VocabularyService>();
+builder.Services.AddScoped<IUnitService, UnitService>();
+builder.Services.AddScoped<IUnitHasVocabularyService, UnitHasVocabularyService>();
+builder.Services.AddScoped<IFavoriteVocabularyService, FavoriteVocabularyService>();
+builder.Services.AddScoped<IFavoriteUnitService, FavoriteUnitService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
