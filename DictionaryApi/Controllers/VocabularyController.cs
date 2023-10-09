@@ -56,7 +56,7 @@ namespace DictionaryApi.Controllers
             }
         }
         [HttpPut]
-        public async Task<IActionResult> UpdataVocabulary(string id, Vocabulary obj)
+        public async Task<IActionResult> UpdateVocabulary(string id, Vocabulary obj)
         {
             try
             {

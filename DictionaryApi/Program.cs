@@ -19,6 +19,7 @@ builder.Services.AddScoped<IUnitService, UnitService>();
 builder.Services.AddScoped<IUnitHasVocabularyService, UnitHasVocabularyService>();
 builder.Services.AddScoped<IFavoriteVocabularyService, FavoriteVocabularyService>();
 builder.Services.AddScoped<IFavoriteUnitService, FavoriteUnitService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
