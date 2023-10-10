@@ -26,7 +26,7 @@ namespace DictionaryApi.Domain
 
         [BsonElement("dateOfBirth")]
         [JsonPropertyName("dateOfBirth")]
-        private DateTime? _dateOfBirth;
+        private DateTime _dateOfBirth = DateTime.Now;
 
         public string Email
         {
@@ -43,7 +43,7 @@ namespace DictionaryApi.Domain
             get { return _userName; }
             set { _userName = value; }
         }
-        public DateTime? DateOfBirth
+        public DateTime DateOfBirth
         {
             get { return _dateOfBirth; }
             set { _dateOfBirth = value; }

@@ -7,33 +7,33 @@ namespace DictionaryApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UnitHasVocabularyController : ControllerBase
+    public class TestHistoryController : ControllerBase
     {
-        private readonly IUnitHasVocabularyService _unitVocaService;
-        public UnitHasVocabularyController(IUnitHasVocabularyService unitVocaService)
+        private readonly ITestHistoryService _testHistoryService;
+        public TestHistoryController(ITestHistoryService testHistoryService)
         {
-            _unitVocaService = unitVocaService;
+            _testHistoryService = testHistoryService;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateVocabulary(UnitHasVocabulary obj)
+        public async Task<IActionResult> CreateTestHistory(TestHistory obj)
         {
             try
             {
-                var unitVoca = await _unitVocaService.AddUnitHasVocabularyAsync(obj);
-                return Ok(unitVoca);
+                var history = await _testHistoryService.AddTestHistoryAsync(obj);
+                return Ok(history);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-        [HttpGet("{unitId}")]
-        public async Task<IActionResult> GetAllVocabularyOfUnit(string unitId)
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetAllTestHistoryOfUser(string userId)
         {
             try
             {
-                var unitVoca = await _unitVocaService.GetAllVocabularyOfUnitAsync(unitId);
-                return Ok(unitVoca);
+                var history = await _testHistoryService.GetAllTestHistoryOfUserAsync(userId);
+                return Ok(history);
             }
             catch (Exception ex)
             {
@@ -41,12 +41,12 @@ namespace DictionaryApi.Controllers
             }
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleteVocabulary(string id)
+        public async Task<IActionResult> DeleteTestHistory(string id)
         {
             try
             {
-                var unitVoca = await _unitVocaService.RemoveUnitHasVocabularyAsync(id);
-                return Ok(unitVoca);
+                var history = await _testHistoryService.RemoveTestHistoryAsync(id);
+                return Ok(history);
             }
             catch (Exception ex)
             {

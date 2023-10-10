@@ -27,7 +27,6 @@ namespace DictionaryApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
         [HttpGet("{unitId}")]
         public async Task<IActionResult> GetAllVocabularyOfUnit(string unitId)
         {
