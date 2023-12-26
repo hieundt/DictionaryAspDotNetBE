@@ -1,17 +1,24 @@
+using System.Security.Claims;
 using DictionaryApi.DataAccess.DbSetting;
 using DictionaryApi.Repository;
 using DictionaryApi.Service;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson.Serialization.Conventions;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+//var conventionPack = new ConventionPack { new CamelCaseElementNameConvention() };
+//ConventionRegistry.Register("camel case", conventionPack, t => true);
 
 // Add services to the container.
 builder.Services.Configure<DictionaryDbSetting>(builder.Configuration.GetSection("DictionaryDatabase"));
 
 builder.Services.AddSingleton<IMongoDbSetting>(serviceProvider =>
-    serviceProvider.GetRequiredService<IOptions<DictionaryDbSetting>>().Value);
+    serviceProvider.GetRequiredService<IOptions<DictionaryDbSetting>>().Value); 
+
+
+//builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNameCaseInsensitive = false);
 
 builder.Services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
 builder.Services.AddScoped<IVocabularyService, VocabularyService>();
@@ -27,6 +34,10 @@ builder.Services.AddScoped<ITestService, TestService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication("Bearer").AddJwtBearer();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -42,6 +53,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.MapGet("/", () => "Hello, World!");
+app.MapGet("/secret", (ClaimsPrincipal user) => $"Hello {user.Identity?.Name}. My secret")
+    .RequireAuthorization();
 
 app.MapControllers();
 

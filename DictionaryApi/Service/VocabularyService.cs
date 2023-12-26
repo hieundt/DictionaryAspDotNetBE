@@ -1,5 +1,6 @@
 ﻿using DictionaryApi.Domain;
 using DictionaryApi.Repository;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DictionaryApi.Service
 {

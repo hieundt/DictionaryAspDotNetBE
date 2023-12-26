@@ -13,40 +13,16 @@ namespace DictionaryApi.Domain
         public string Id { get; set; } = String.Empty;
 
         [BsonElement("email")]
-        [JsonPropertyName("email")]
-        private string _email = String.Empty;
+        public string Email { get; set; } = String.Empty;
 
         [BsonElement("password")]
-        [JsonPropertyName("password")]
-        private string _password = String.Empty;
+        public string Password { get; set; } = String.Empty;
 
         [BsonElement("userName")]
-        [JsonPropertyName("userName")]
-        private string _userName = String.Empty;
+        public string UserName { get; set; } = String.Empty;
 
         [BsonElement("dateOfBirth")]
-        [JsonPropertyName("dateOfBirth")]
-        private DateTime _dateOfBirth = DateTime.Now;
+        public DateTime DateOfBirth { get; set; } = DateTime.Now;
 
-        public string Email
-        {
-            get { return _email; }
-            set { _email = value; }
-        }
-        public string PassWord
-        {
-            get { return _password; }
-            set { _password = value; }
-        }
-        public string UserName
-        {
-            get { return _userName; }
-            set { _userName = value; }
-        }
-        public DateTime DateOfBirth
-        {
-            get { return _dateOfBirth; }
-            set { _dateOfBirth = value; }
-        }
     }
 }

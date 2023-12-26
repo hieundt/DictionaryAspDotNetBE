@@ -13,40 +13,16 @@ namespace DictionaryApi.Domain
         public string Id { get; set; } = String.Empty;
 
         [BsonElement("userId")]
-        [JsonPropertyName("userId")]
-        private string _userId = String.Empty;
+        public string UserId { get; set; } = String.Empty;
 
         [BsonElement("testId")]
-        [JsonPropertyName("testId")]
-        private string _testId = String.Empty;
+        public string TestId { get; set; } = String.Empty;
 
         [BsonElement("totalPoint")]
-        [JsonPropertyName("totalPoint")]
-        private int _totalPoint = 0;
+        public int TotalPoint { get; set; } = 0;
 
         [BsonElement("testDate")]
-        [JsonPropertyName("testDate")]
-        private DateTime _testDate = DateTime.Now;
+        public DateTime TestDate { get; set; } = DateTime.Now;
 
-        public string UserId
-        {
-            get { return _userId; }
-            set { _userId = value; }    
-        }
-        public string TestId
-        {
-            get { return _testId; }
-            set { _testId = value; }
-        }
-        public int TotalPoint
-        {
-            get { return _totalPoint; }
-            set { _totalPoint = value; }
-        }
-        public DateTime TestDate
-        {
-            get { return _testDate; }
-            set { _testDate = value; }
-        }
     }
 }

@@ -14,58 +14,22 @@ namespace DictionaryApi.Domain
         public string Id { get; set; } = String.Empty;
 
         [BsonElement("type")]
-        [JsonPropertyName("type")]
-        private bool? _type;
+        public bool? Type { get; set; }
 
         [BsonElement("title")]
-        [JsonPropertyName("title")]
-        private string _title = String.Empty;
+        public string Title { get; set; } = String.Empty;
 
         [BsonElement("description")]
-        [JsonPropertyName("description")]
-        private string _description = String.Empty;
+        public string Description { get; set; } = String.Empty;
 
         [BsonElement("answer")]
-        [JsonPropertyName("answer")]
-        private string _answer = String.Empty;
+        public string Answer { get; set; } = String.Empty;
 
         [BsonElement("point")]
-        [JsonPropertyName("point")]
-        private int? _point;
+        public int? Point { get; set; } = 0;
 
         [BsonElement("options")]
-        [JsonPropertyName("options")]
-        private List<string> _options = new List<string>();
+        public List<string> Options { get; set; } = new List<string>();
 
-        public bool? Type
-        {
-            get { return _type; }
-            set { _type = value; }
-        }
-        public string Title
-        {
-            get { return _title; }
-            set { _title = value; }
-        }
-        public string Description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
-        public string Answer
-        {
-            get { return _answer; }
-            set { _answer = value; }
-        }
-        public int? Point
-        {
-            get { return _point; }
-            set { _point = value; }
-        }
-        public List<string> Options
-        {
-            get { return _options; }
-            set { _options = value; }
-        }
     }
 }

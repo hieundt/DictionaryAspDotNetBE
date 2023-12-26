@@ -11,23 +11,13 @@ namespace DictionaryApi.Domain
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; } = String.Empty;
+
         [BsonElement("value")]
-        [JsonPropertyName("value")]
-        private string _value = null!;
+        public string Value { get; set; } = String.Empty;
 
         [BsonElement("isCorrect")]
-        [JsonPropertyName("isCorrect")]
-        private bool _isCorrect;
+        public bool IsCorrect { get; set; }
 
-        public string Value
-        {
-            get { return _value; }
-            set { _value = value; }
-        }
-        public bool IsCorrect
-        {
-            get { return _isCorrect; }
-            set { _isCorrect = value; }
-        }
+
     }
 }

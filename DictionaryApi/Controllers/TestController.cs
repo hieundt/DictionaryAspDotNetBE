@@ -54,7 +54,7 @@ namespace DictionaryApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTest(string id, Test obj)
         {
             try
@@ -67,7 +67,7 @@ namespace DictionaryApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTest(string id)
         {
             try

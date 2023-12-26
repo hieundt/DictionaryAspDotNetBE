@@ -44,3 +44,10 @@ C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\obj\Debug\net7.0\refi
 C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\obj\Debug\net7.0\DictionaryApi.pdb
 C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\obj\Debug\net7.0\DictionaryApi.genruntimeconfig.cache
 C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\obj\Debug\net7.0\ref\DictionaryApi.dll
+C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\dev\projects\dotnet\DictionaryAspDotNetBE\DictionaryApi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

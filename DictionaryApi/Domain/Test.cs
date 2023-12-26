@@ -14,30 +14,15 @@ namespace DictionaryApi.Domain
 
         [BsonElement("name")]
         [JsonPropertyName("name")]
-        private string _name = string.Empty;
+        public string Name { get; set; } = string.Empty;
 
         [BsonElement("image")]
         [JsonPropertyName("image")]
-        private string _image = String.Empty;
+        public string Image { get; set; } = String.Empty;
 
         [BsonElement("questions")]
         [JsonPropertyName("questions")]
-        private List<string> _questions = new List<string>();
+        public List<string> Questions { get; set; } = new List<string>();
 
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        public string Image
-        {
-            get { return _image; }
-            set { _image = value; }
-        }
-        public List<string> Questions
-        {
-            get { return _questions; }
-            set { _questions = value; }
-        }
     }
 }

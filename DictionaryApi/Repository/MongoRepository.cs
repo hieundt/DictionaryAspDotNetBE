@@ -2,18 +2,24 @@
 using DictionaryApi.DataAccess.CollectionNaming;
 using DictionaryApi.DataAccess.DbSetting;
 using DictionaryApi.Domain;
+using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
+
 
 namespace DictionaryApi.Repository
 {
     public class MongoRepository<TEntity> : IMongoRepository<TEntity> where TEntity : IBaseEntity
     {
         private readonly IMongoCollection<TEntity> _collection;
+
+      
+
         public MongoRepository(IMongoDbSetting settings)
         {
             var database = new MongoClient(settings.ConnectionString).GetDatabase(settings.DatabaseName);
             _collection = database.GetCollection<TEntity>(GetCollectionName(typeof(TEntity)));
         }
+
         private protected string? GetCollectionName(Type documentType)
         {
             return (documentType.GetCustomAttributes(

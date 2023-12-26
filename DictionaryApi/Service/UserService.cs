@@ -15,7 +15,7 @@ namespace DictionaryApi.Service
         }
         public async Task<User> AddUserByEmailPasswordAsync(User obj)
         {
-            obj.PassWord = ToHexString(GetSHA(obj.PassWord));
+            obj.Password = ToHexString(GetSHA(obj.Password));
             return await _userRepository.Add(obj);
         }
         public async Task<IEnumerable<User>> GetAllUserAsync()
@@ -39,7 +39,7 @@ namespace DictionaryApi.Service
                 throw new KeyNotFoundException($"Entity not found");
             }
             existing.Email = string.IsNullOrEmpty(obj.Email) ? existing.Email : obj.Email;
-            existing.PassWord = string.IsNullOrEmpty(obj.PassWord) ? existing.PassWord : obj.PassWord;
+            existing.Password = string.IsNullOrEmpty(obj.Password) ? existing.Password : obj.Password;
             existing.UserName = string.IsNullOrEmpty(obj.UserName) ? existing.UserName : obj.UserName;
             existing.DateOfBirth = obj.DateOfBirth == null ? existing.DateOfBirth : obj.DateOfBirth;
             return existing;
@@ -60,7 +60,7 @@ namespace DictionaryApi.Service
             if(existUser !=  null)
             {
                 string hexInput = ToHexString(GetSHA(password));
-                if (existUser.PassWord.Equals(hexInput))
+                if (existUser.Password.Equals(hexInput))
                 {
                     return existUser;
                 }

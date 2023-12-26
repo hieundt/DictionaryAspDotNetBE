@@ -15,7 +15,7 @@ namespace DictionaryApi.Controllers
             _favoriteVocaService = favoriteVocaService;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateVocabulary(FavoriteVocabulary obj)
+        public async Task<IActionResult> CreateFavoriteVocabulary(FavoriteVocabulary obj)
         {
             try
             {
@@ -28,12 +28,12 @@ namespace DictionaryApi.Controllers
             }
         }
 
-        [HttpGet("{unitId}")]
-        public async Task<IActionResult> GetAllVocabularyOfUnit(string unitId)
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetAllFavoriteVocabularyOfUser(string userId)
         {
             try
             {
-                var favoriteVoca = await _favoriteVocaService.GetAllFavoriteVocabularyOfUserAsync(unitId);
+                var favoriteVoca = await _favoriteVocaService.GetAllFavoriteVocabularyOfUserAsync(userId);
                 return Ok(favoriteVoca);
             }
             catch (Exception ex)
@@ -41,12 +41,12 @@ namespace DictionaryApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-        [HttpDelete]
-        public async Task<IActionResult> DeleteVocabulary(string id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteFavoriteVocabulary(string favoVocaId)
         {
             try
             {
-                var favoriteVoca = await _favoriteVocaService.RemoveFavoriteVocabularyAsync(id);
+                var favoriteVoca = await _favoriteVocaService.RemoveFavoriteVocabularyAsync(favoVocaId);
                 return Ok(favoriteVoca);
             }
             catch (Exception ex)

@@ -13,22 +13,9 @@ namespace DictionaryApi.Domain
         public string Id { get; set; } = String.Empty;
 
         [BsonElement("userId")]
-        [JsonPropertyName("userId")]
-        private string _userId = String.Empty;
+        public string UserId { get; set; } = String.Empty;
 
         [BsonElement("vocabularyId")]
-        [JsonPropertyName("vocabularyId")]
-        private string _vocabularyId = String.Empty;
-
-        public string UserId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
-        public string VocabularyId
-        {
-            get { return _vocabularyId; }
-            set { _vocabularyId = value; }
-        }
+        public string VocabularyId { get; set; } = String.Empty;
     }
 }

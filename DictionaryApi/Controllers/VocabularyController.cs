@@ -1,11 +1,13 @@
 ﻿using DictionaryApi.Domain;
 using DictionaryApi.Repository;
 using DictionaryApi.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DictionaryApi.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
     public class VocabularyController : ControllerBase
@@ -15,6 +17,7 @@ namespace DictionaryApi.Controllers
         {
             _vocabularyService = vocabularyService;
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateVocabulary(Vocabulary obj)
         {
@@ -68,7 +71,7 @@ namespace DictionaryApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteVocabulary(string id)
         {
             try
