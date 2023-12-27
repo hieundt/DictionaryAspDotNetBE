@@ -42,11 +42,11 @@ namespace DictionaryApi.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteFavoriteVocabulary(string favoVocaId)
+        public async Task<IActionResult> DeleteFavoriteVocabulary(string id)
         {
             try
             {
-                var favoriteVoca = await _favoriteVocaService.RemoveFavoriteVocabularyAsync(favoVocaId);
+                var favoriteVoca = await _favoriteVocaService.RemoveFavoriteVocabularyAsync(id);
                 return Ok(favoriteVoca);
             }
             catch (Exception ex)
